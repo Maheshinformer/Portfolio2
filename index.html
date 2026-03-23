@@ -23,8 +23,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* BLUE GLOW BACKGROUND */
-
+/* GLOW BACKGROUND */
 body::before{
 content:'';
 position:fixed;
@@ -36,10 +35,15 @@ opacity:.15;
 top:-200px;
 left:-200px;
 z-index:-1;
+animation:float 8s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);} 
+100%{transform:translateY(80px);} 
 }
 
 /* NAVBAR */
-
 nav{
 position:sticky;
 top:0;
@@ -54,8 +58,25 @@ z-index:999;
 }
 
 .logo{
-font-size:22px;
-font-weight:700;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo img{
+height:45px;
+width:auto;
+filter:drop-shadow(0 5px 10px rgba(0,0,0,0.5));
+transition:0.4s;
+}
+
+.logo img:hover{
+transform:scale(1.1) rotate(-3deg);
+}
+
+.logo span{
+font-size:20px;
+font-weight:600;
 color:#007BFF;
 }
 
@@ -69,15 +90,25 @@ nav ul a{
 text-decoration:none;
 color:white;
 font-weight:500;
-transition:.3s;
+position:relative;
 }
 
-nav ul a:hover{
-color:#007BFF;
+nav ul a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:#007BFF;
+transition:0.3s;
+}
+
+nav ul a:hover::after{
+width:100%;
 }
 
 /* HERO */
-
 .hero{
 height:90vh;
 display:flex;
@@ -86,6 +117,12 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+animation:fadeUp 1s ease forwards;
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px);} 
+to{opacity:1; transform:translateY(0);} 
 }
 
 .hero h1{
@@ -120,8 +157,6 @@ transform:translateY(-4px);
 box-shadow:0 12px 30px rgba(0,123,255,.5);
 }
 
-/* SECTION */
-
 section{
 padding:90px 8%;
 }
@@ -133,7 +168,6 @@ margin-bottom:40px;
 }
 
 /* VIDEO GRID */
-
 .video-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -151,7 +185,7 @@ transition:.35s;
 }
 
 .video-card:hover{
-transform:translateY(-10px) scale(1.02);
+transform:translateY(-10px) scale(1.03);
 box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
@@ -163,11 +197,9 @@ border:none;
 
 .video-card h3{
 padding:15px;
-font-weight:500;
 }
 
-/* BENTO DESIGN */
-
+/* BENTO */
 .bento{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -184,7 +216,7 @@ transition:.35s;
 }
 
 .bento-item:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
@@ -193,8 +225,7 @@ color:#007BFF;
 margin-bottom:10px;
 }
 
-/* CONTACT */
-
+/* FOOTER */
 footer{
 background:#0e0e0e;
 padding:60px 8%;
@@ -220,19 +251,9 @@ footer a:hover{
 text-decoration:underline;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
-
-.hero h1{
-font-size:2.2rem;
-}
-
-nav ul{
-gap:15px;
-font-size:14px;
-}
-
+.hero h1{font-size:2.2rem;}
+nav ul{gap:15px;font-size:14px;}
 }
 
 </style>
@@ -241,10 +262,12 @@ font-size:14px;
 <body>
 
 <!-- NAVBAR -->
-
 <nav>
 
-<div class="logo">Mahesh</div>
+<div class="logo">
+<img src="logo.png" alt="logo">
+<span>Mahesh</span>
+</div>
 
 <ul>
 <li><a href="#">Home</a></li>
@@ -256,7 +279,6 @@ font-size:14px;
 </nav>
 
 <!-- HERO -->
-
 <section class="hero">
 
 <h1>Mahesh | <span>Visual Storyteller</span> & Digital Architect</h1>
@@ -270,7 +292,6 @@ View My Work
 </section>
 
 <!-- VIDEO PORTFOLIO -->
-
 <section id="video">
 
 <h2 class="title">Product Advertisements</h2>
@@ -294,39 +315,9 @@ View My Work
 
 </div>
 
-
-<h2 class="title">Instagram Reel Edits</h2>
-
-<div class="video-grid">
-
-<div class="video-card">
-<iframe src="https://www.youtube.com/embed/OepV4uhnyqc"></iframe>
-<h3>Instagram Reel Edit</h3>
-</div>
-
-<div class="video-card">
-<iframe src="https://www.youtube.com/embed/PKDaP0bZUDU"></iframe>
-<h3>Reel Style Video</h3>
-</div>
-
-</div>
-
-
-<h2 class="title">Motion Graphics</h2>
-
-<div class="video-grid">
-
-<div class="video-card">
-<iframe src="https://www.youtube.com/embed/B85JlmY_ygk"></iframe>
-<h3>Motion Graphics Animation</h3>
-</div>
-
-</div>
-
 </section>
 
-<!-- GRAPHIC DESIGN -->
-
+<!-- DESIGN -->
 <section id="design">
 
 <h2 class="title">Graphic Design</h2>
@@ -353,7 +344,6 @@ View My Work
 </section>
 
 <!-- CONTACT -->
-
 <footer id="contact">
 
 <h2>Let's Work Together</h2>
@@ -368,3 +358,4 @@ View My Work
 
 </body>
 </html>
+
