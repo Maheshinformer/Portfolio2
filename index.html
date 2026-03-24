@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Mahesh | Visual Storyteller & Digital Architect</title>
+<title>Mahesh | Visual Storyteller</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -20,8 +19,23 @@ font-family:'Inter',sans-serif;
 
 body{
 background:#121212;
-color:#fff;
-line-height:1.6;
+color:white;
+overflow-x:hidden;
+}
+
+/* BLUE GLOW BACKGROUND */
+
+body::before{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:#007BFF;
+filter:blur(200px);
+opacity:.15;
+top:-200px;
+left:-200px;
+z-index:-1;
 }
 
 /* NAVBAR */
@@ -29,34 +43,36 @@ line-height:1.6;
 nav{
 position:sticky;
 top:0;
-background:rgba(18,18,18,0.8);
-backdrop-filter:blur(10px);
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 8%;
-z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.1);
+padding:18px 8%;
+background:rgba(20,20,20,.7);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
+z-index:999;
 }
 
-nav h2{
+.logo{
+font-size:22px;
+font-weight:700;
 color:#007BFF;
 }
 
 nav ul{
-list-style:none;
 display:flex;
-gap:25px;
+gap:30px;
+list-style:none;
 }
 
-nav ul li a{
+nav ul a{
 text-decoration:none;
 color:white;
 font-weight:500;
-transition:0.3s;
+transition:.3s;
 }
 
-nav ul li a:hover{
+nav ul a:hover{
 color:#007BFF;
 }
 
@@ -73,36 +89,47 @@ padding:20px;
 }
 
 .hero h1{
-font-size:3rem;
-margin-bottom:20px;
+font-size:3.2rem;
+max-width:800px;
+}
+
+.hero span{
+color:#007BFF;
+}
+
+.hero p{
+margin-top:20px;
+opacity:.8;
+max-width:600px;
 }
 
 .cta{
-padding:12px 30px;
-background:#007BFF;
+margin-top:30px;
+padding:14px 40px;
+border-radius:40px;
 border:none;
-border-radius:30px;
+background:linear-gradient(45deg,#007BFF,#00c6ff);
 color:white;
 font-weight:600;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 }
 
 .cta:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(0,123,255,0.5);
+transform:translateY(-4px);
+box-shadow:0 12px 30px rgba(0,123,255,.5);
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
-padding:80px 8%;
+padding:90px 8%;
 }
 
-.section-title{
-font-size:2rem;
-margin-bottom:40px;
+.title{
 text-align:center;
+font-size:2.2rem;
+margin-bottom:40px;
 }
 
 /* VIDEO GRID */
@@ -110,69 +137,78 @@ text-align:center;
 .video-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+gap:30px;
+margin-bottom:60px;
 }
 
-.card{
+.video-card{
 background:rgba(255,255,255,0.05);
-border-radius:15px;
+border-radius:18px;
 overflow:hidden;
+border:1px solid rgba(255,255,255,0.08);
 backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.1);
-transition:0.3s;
+transition:.35s;
 }
 
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 10px 25px rgba(0,0,0,0.5);
+.video-card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
-.card iframe{
+.video-card iframe{
 width:100%;
-height:200px;
+height:210px;
+border:none;
 }
 
-.card h3{
+.video-card h3{
 padding:15px;
+font-weight:500;
 }
 
-/* BENTO GRID */
+/* BENTO DESIGN */
 
 .bento{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
-.bento-box{
+.bento-item{
+padding:50px 30px;
+border-radius:20px;
 background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:15px;
+border:1px solid rgba(255,255,255,0.08);
 text-align:center;
-border:1px solid rgba(255,255,255,0.1);
-transition:0.3s;
+transition:.35s;
 }
 
-.bento-box:hover{
+.bento-item:hover{
 transform:scale(1.05);
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
+box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
-.bento-box h3{
+.bento-item h3{
 color:#007BFF;
+margin-bottom:10px;
 }
 
 /* CONTACT */
 
 footer{
+background:#0e0e0e;
 padding:60px 8%;
 text-align:center;
-background:#0d0d0d;
-border-top:1px solid rgba(255,255,255,0.1);
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer h2{
+margin-bottom:20px;
 }
 
 footer p{
-margin:10px 0;
+margin:8px 0;
+opacity:.85;
 }
 
 footer a{
@@ -207,21 +243,25 @@ font-size:14px;
 <!-- NAVBAR -->
 
 <nav>
-<h2>Mahesh</h2>
+
+<div class="logo">Mahesh</div>
 
 <ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#video">Video Portfolio</a></li>
-<li><a href="#design">Graphic Design</a></li>
+<li><a href="#">Home</a></li>
+<li><a href="#video">Video</a></li>
+<li><a href="#design">Design</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
 </nav>
 
 <!-- HERO -->
 
-<section class="hero" id="home">
+<section class="hero">
 
-<h1>Mahesh | Visual Storyteller & Digital Architect</h1>
+<h1>Mahesh | <span>Visual Storyteller</span> & Digital Architect</h1>
+
+<p>Professional Video Editor & Graphic Designer creating cinematic edits, product ads, and engaging social media content.</p>
 
 <button class="cta" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth'})">
 View My Work
@@ -233,36 +273,52 @@ View My Work
 
 <section id="video">
 
-<h2 class="section-title">Video Portfolio</h2>
+<h2 class="title">Product Advertisements</h2>
 
 <div class="video-grid">
 
-<div class="card">
-<iframe 
-src="https://www.youtube.com/embed/XZ09J3j38vA?autoplay=1&mute=1&loop=1&playlist=XZ09J3j38vA&controls=0&showinfo=0" 
-frameborder="0" 
-allow="autoplay; encrypted-media" 
-allowfullscreen>
-</iframe><h3>Product Ad</h3>
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/XZ09J3j38vA"></iframe>
+<h3>Shoe Advertisement</h3>
 </div>
 
-<div class="card">
-<iframe 
-src="https://www.youtube.com/embed/OepV4uhnyqc?autoplay=1&mute=1&loop=1&playlist=XZ09J3j38vA&controls=0&showinfo=0" 
-frameborder="0" 
-allow="autoplay; encrypted-media" 
-allowfullscreen>
-</iframe><h3>Instagram Reel</h3>
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/1SyXs-BDRyI"></iframe>
+<h3>Product Promo Edit</h3>
 </div>
 
-<div class="card">
-<iframe 
-src="https://www.youtube.com/embed/B85JlmY_ygk?autoplay=1&mute=1&loop=1&playlist=XZ09J3j38vA&controls=0&showinfo=0" 
-frameborder="0" 
-allow="autoplay; encrypted-media" 
-allowfullscreen>
-</iframe>
-<h3>Motion Graphics</h3>
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/HAoZ4qul9yM"></iframe>
+<h3>Product Shorts Ad</h3>
+</div>
+
+</div>
+
+
+<h2 class="title">Instagram Reel Edits</h2>
+
+<div class="video-grid">
+
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/OepV4uhnyqc"></iframe>
+<h3>Instagram Reel Edit</h3>
+</div>
+
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/PKDaP0bZUDU"></iframe>
+<h3>Reel Style Video</h3>
+</div>
+
+</div>
+
+
+<h2 class="title">Motion Graphics</h2>
+
+<div class="video-grid">
+
+<div class="video-card">
+<iframe src="https://www.youtube.com/embed/B85JlmY_ygk"></iframe>
+<h3>Motion Graphics Animation</h3>
 </div>
 
 </div>
@@ -273,23 +329,23 @@ allowfullscreen>
 
 <section id="design">
 
-<h2 class="section-title">Graphic Design</h2>
+<h2 class="title">Graphic Design</h2>
 
 <div class="bento">
 
-<div class="bento-box">
+<div class="bento-item">
 <h3>YouTube Thumbnails</h3>
-<p>High CTR thumbnail designs</p>
+<p>High CTR thumbnails designed for better engagement.</p>
 </div>
 
-<div class="bento-box">
+<div class="bento-item">
 <h3>Logo Design</h3>
-<p>Brand identity & logos</p>
+<p>Modern and professional brand identity design.</p>
 </div>
 
-<div class="bento-box">
+<div class="bento-item">
 <h3>Social Media Kits</h3>
-<p>Instagram & business branding</p>
+<p>Instagram posts, covers, and brand kits.</p>
 </div>
 
 </div>
@@ -300,7 +356,7 @@ allowfullscreen>
 
 <footer id="contact">
 
-<h2>Contact Me</h2>
+<h2>Let's Work Together</h2>
 
 <p>Email: <a href="mailto:gratiacreations03@gmail.com">gratiacreations03@gmail.com</a></p>
 
