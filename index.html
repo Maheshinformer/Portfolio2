@@ -1,117 +1,278 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahesh | Graphic Designer & Video Editor</title>
 
-export default function Portfolio() {
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-  useEffect(() => {
-    document.title = "Mahesh | Visual Storyteller";
-  }, []);
+<style>
 
-  return (
-    <div className="bg-[#121212] text-white font-sans">
-
-      {/* NAVBAR */}
-      <nav className="flex justify-between items-center px-8 py-4 sticky top-0 bg-black/40 backdrop-blur-xl border-b border-white/10 z-50">
-        <div className="flex items-center gap-3">
-          <img src="/logo.png" className="h-10 hover:scale-110 transition duration-300" />
-          <span className="text-blue-500 font-semibold text-lg">Mahesh</span>
-        </div>
-
-        <ul className="flex gap-8 text-sm">
-          {['Home','Video','Design','Contact'].map((item) => (
-            <li key={item} className="relative group cursor-pointer">
-              {item}
-              <span className="absolute left-0 bottom-0 h-[2px] w-0 bg-blue-500 transition-all group-hover:w-full"></span>
-            </li>
-          ))}
-        </ul>
-      </nav>
-
-      {/* HERO */}
-      <section className="h-screen flex flex-col justify-center items-center text-center px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold max-w-3xl"
-        >
-          Mahesh | <span className="text-blue-500">Visual Storyteller</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mt-6 max-w-xl opacity-80"
-        >
-          Professional Video Editor & Graphic Designer creating cinematic edits and high-converting ads.
-        </motion.p>
-
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-8 px-8 py-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"
-          onClick={() => document.getElementById("video").scrollIntoView({ behavior: "smooth" })}
-        >
-          View My Work
-        </motion.button>
-      </section>
-
-      {/* VIDEO SECTION */}
-      <section id="video" className="px-8 py-20">
-        <h2 className="text-3xl text-center mb-10">Product Advertisements</h2>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            "XZ09J3j38vA",
-            "1SyXs-BDRyI",
-            "HAoZ4qul9yM"
-          ].map((id, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05, y: -10 }}
-              className="bg-white/5 rounded-2xl overflow-hidden border border-white/10"
-            >
-              <iframe
-                src={`https://www.youtube.com/embed/${id}`}
-                className="w-full h-52"
-              />
-              <h3 className="p-4">Project {i + 1}</h3>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* DESIGN SECTION */}
-      <section id="design" className="px-8 py-20">
-        <h2 className="text-3xl text-center mb-10">Graphic Design</h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { title: "YouTube Thumbnails", desc: "High CTR thumbnails" },
-            { title: "Logo Design", desc: "Modern brand identity" },
-            { title: "Social Media Kits", desc: "Complete brand kits" }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.08 }}
-              className="p-10 rounded-2xl bg-white/5 border border-white/10 text-center"
-            >
-              <h3 className="text-blue-500 mb-2">{item.title}</h3>
-              <p className="opacity-80">{item.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer id="contact" className="text-center py-16 border-t border-white/10">
-        <h2 className="text-2xl mb-4">Let's Work Together</h2>
-        <p>Email: gratiacreations03@gmail.com</p>
-        <p>Phone: +91 9121937490</p>
-        <p className="mt-4 opacity-60">© 2026 Mahesh</p>
-      </footer>
-
-    </div>
-  );
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
+
+body{
+background:#0f172a;
+color:white;
+line-height:1.6;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:#020617;
+position:sticky;
+top:0;
+}
+
+header h2{
+color:#38bdf8;
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:white;
+font-weight:500;
+}
+
+.hero{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+height:80vh;
+padding:20px;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:10px;
+}
+
+.hero span{
+color:#38bdf8;
+}
+
+.hero p{
+max-width:600px;
+margin-bottom:20px;
+}
+
+.btn{
+background:#38bdf8;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+text-decoration:none;
+color:black;
+font-weight:600;
+}
+
+section{
+padding:80px 8%;
+}
+
+.section-title{
+font-size:32px;
+margin-bottom:30px;
+text-align:center;
+color:#38bdf8;
+}
+
+.about{
+max-width:800px;
+margin:auto;
+text-align:center;
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.skill{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+text-align:center;
+}
+
+.portfolio-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.portfolio-item{
+background:#1e293b;
+padding:20px;
+border-radius:10px;
+}
+
+.portfolio-item a{
+color:#38bdf8;
+text-decoration:none;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.service{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+text-align:center;
+}
+
+.contact{
+text-align:center;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#020617;
+margin-top:40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Mahesh</h2>
+
+<nav>
+<a href="#about">About</a>
+<a href="#portfolio">Portfolio</a>
+<a href="#services">Services</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+
+<section class="hero">
+<h1>Hi, I'm <span>Mahesh</span></h1>
+<p>Graphic Designer & Video Editor creating engaging visuals, branding designs, and professional video edits for creators and businesses.</p>
+
+<a class="btn" href="#portfolio">View My Work</a>
+</section>
+
+
+<section id="about">
+
+<h2 class="section-title">About Me</h2>
+
+<div class="about">
+
+<p>I am a passionate Graphic Designer and Video Editor specializing in social media content, branding design, and YouTube video editing.</p>
+
+<div class="skills">
+
+<div class="skill">Adobe Premiere Pro</div>
+<div class="skill">After Effects</div>
+<div class="skill">Photoshop</div>
+<div class="skill">Illustrator</div>
+<div class="skill">CapCut</div>
+<div class="skill">Motion Graphics</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="portfolio">
+
+<h2 class="section-title">Video Editing Portfolio</h2>
+
+<div class="portfolio-grid">
+
+<div class="portfolio-item">
+<h3>YouTube Editing</h3>
+<p>Professional YouTube video editing with transitions and motion graphics.</p>
+<a href="https://drive.google.com/drive/folders/1IiU1CVujoD0Owzmda8UYnr4MJfyP2cqH" target="_blank">View Videos</a>
+</div>
+
+<div class="portfolio-item">
+<h3>Reels & Shorts</h3>
+<p>Instagram Reels and YouTube Shorts editing.</p>
+<a href="https://drive.google.com/drive/folders/1IiU1CVujoD0Owzmda8UYnr4MJfyP2cqH" target="_blank">Watch</a>
+</div>
+
+<div class="portfolio-item">
+<h3>Promo Edits</h3>
+<p>Promo and marketing videos for brands.</p>
+<a href="https://drive.google.com/drive/folders/1IiU1CVujoD0Owzmda8UYnr4MJfyP2cqH" target="_blank">Watch</a>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="services">
+
+<h2 class="section-title">Services</h2>
+
+<div class="services">
+
+<div class="service">
+<h3>Graphic Design</h3>
+<p>Logos, branding, posters, and social media creatives.</p>
+</div>
+
+<div class="service">
+<h3>Video Editing</h3>
+<p>YouTube editing, reels, shorts, ads, and cinematic edits.</p>
+</div>
+
+<div class="service">
+<h3>Motion Graphics</h3>
+<p>Intro animations, titles, and dynamic motion graphics.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<div class="contact">
+
+<p>Email: your@email.com</p>
+
+<p>Instagram: yourprofile</p>
+
+<p>Phone: Your Number</p>
+
+</div>
+
+</section>
+
+
+<footer>
+<p>© 2026 Mahesh Portfolio</p>
+</footer>
+
+</body>
+</html>
